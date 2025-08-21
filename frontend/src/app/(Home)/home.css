@@ -1,0 +1,37 @@
+.paginaPrincipal{
+    background-color: var(--color-darker);
+    padding: 10px;
+    width: 100%;
+    min-height: 100vh;
+    padding: 80px 20px 20px 20px;
+}
+
+
+
+.paginaLoginCadastro {
+  background: linear-gradient(45deg, var(--color-darker), var(--color-dark));
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titleCard{
+    color: var(--color-light);
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.form{
+    color: var(--color-light);
+}
+
+.btn-form{
+    width: 100%;
+}
+
+

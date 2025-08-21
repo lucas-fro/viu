@@ -1,6 +1,4 @@
-import { Header } from "@/components/header/page";
-import "./home.css";
-
+import "./dashboard.css";""
 
 export default function RootLayout({
   children,
@@ -11,7 +9,6 @@ export default function RootLayout({
       <div
         className={`antialiased`}
       >
-        <Header />
         {children}
       </div>
   );

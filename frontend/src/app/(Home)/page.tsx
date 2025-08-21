@@ -2,7 +2,7 @@
 
 export default function Home() {
   return (
-    <main className="paginaPrincipal">
+    <main className="backgorundPrincipal">
       HOME
     </main>
   );

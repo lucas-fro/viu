@@ -1,6 +1,17 @@
+"use client";
+import { useRouter } from "next/navigation";
 import { Card } from "@/components/card/page";
 
 export default function Login() {
+
+  const router = useRouter();
+
+  const handleSubmit = () => {
+
+    router.push("/dashboard");
+  };
+
+
   return (
     <main className="paginaLoginCadastro">
       <Card>
@@ -17,7 +28,7 @@ export default function Login() {
                 <input className="inputs" type="password" id="password" name="password" required />
             </div>
             
-            <button type="submit" className="button-p btn-form">Entrar</button>
+            <button type="submit" onClick={handleSubmit} className="button-p btn-form">Entrar</button>
         </form>
       </Card>
     </main>

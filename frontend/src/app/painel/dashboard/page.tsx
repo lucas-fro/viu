@@ -1,6 +1,6 @@
 export default function Dashboard() {
     return (
-        <main className="backgorundDashboard">
+        <main className="mainPrincipal">
             DASHBOARD
         </main>
     );

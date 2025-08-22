@@ -8,7 +8,7 @@ export default function Login() {
 
   const handleSubmit = () => {
 
-    router.push("/dashboard");
+    router.push("/painel/dashboard");
   };
 
 

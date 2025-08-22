@@ -1,0 +1,11 @@
+.dashboardLayout{
+    display: flex;
+}
+
+.mainPrincipal{
+    background-color: var(--color-darker);
+    height: 100vh;
+    width: 100%;
+    padding: 7%;
+}
+

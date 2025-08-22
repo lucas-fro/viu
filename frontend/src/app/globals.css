@@ -49,4 +49,5 @@ body {
   background-color: var(--color-gray);
   border-radius: var(--border-p);
   padding: 10px 15px;
+  color: var(--color-darker);
 }

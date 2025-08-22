@@ -30,7 +30,7 @@ export default function RootLayout({
       <Sidebar isOpen={isMunuOpen}>
         <SidebarHeader>
           <Link href="/">
-          <Image src="/logo.png" alt="Logo" width={150} height={150}/>
+          <Image src="/logo.png" alt="Logo" width={100} height={100}/>
           </Link>
         </SidebarHeader>
 

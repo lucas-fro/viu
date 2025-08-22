@@ -13,6 +13,7 @@
   --color-dark-gray: #4b4b4b;
   --color-dark: #262626;
   --color-darker: #181818;
+  --color-darker-2: #0f0f0f;
 
   /* bordas */
   --principal: 14px;
@@ -50,4 +51,12 @@ body {
   border-radius: var(--border-p);
   padding: 10px 15px;
   color: var(--color-darker);
+}
+
+.cardGlass {
+  border-radius: var(--principal);
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
 }

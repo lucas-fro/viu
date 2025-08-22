@@ -1,9 +1,9 @@
 .backgorundPrincipal{
-    background-color: var(--color-darker);
-    padding: 10px;
+    background-color: var(--color-darker-2);
     width: 100%;
     min-height: 100vh;
-    padding: 80px 20px 20px 20px;
+    padding: 90px 0px;
+    position: relative;
 }
 
 
@@ -33,5 +33,108 @@
 .btn-form{
     width: 100%;
 }
+
+.section{
+    width: 100%;
+    color: var(--color-light);
+    padding: 10px 20px;
+}
+
+.colorSection{
+    background-color: var(--color-dark);
+}
+
+.sectionTitle{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.chamada-principal{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: calc(100vh - 300px);
+}
+
+.fotoChamada{
+    background: linear-gradient(to bottom,var(--color-darker-2), rgba(0, 0, 0, 0.658), var(--color-darker-2)), url('/fotoChamada.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: calc(100vh - 300px);
+    position: absolute;
+    left: 0;
+}
+
+
+.subtitulo{
+    background-color: #0068df48;
+    margin: auto;
+    border-radius: var(--border-p);
+    padding: 5px 15px;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+
+.textoChamada{
+    margin-top: 60px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chamada-principal h1{
+    font-size: 3rem;
+    font-weight: bold;
+    max-width: 800px;
+    margin: auto;
+    line-height: 3.4rem;
+}
+
+.verem{
+    color: var(--color-primary);
+}
+
+.chamada-principal p{
+    color: var(--color-gray);
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.5rem;
+    margin: 40px auto 50px;
+}
+
+.cardsHome{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 50px auto;
+    width: 100%;
+    max-width: 1400px;
+}
+
+.cardHome{
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    gap: 20px;
+}
+
+.CFTopico{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
 
 

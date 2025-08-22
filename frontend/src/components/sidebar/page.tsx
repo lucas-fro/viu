@@ -5,9 +5,16 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import "./sidebar.css";
 
+// Componente Divisor para separar itens
+export function Divisor() {
+  return ( 
+    <hr className="sidebarDivisor" />
+  )
+}
+
 // Componente principal da Sidebar
-export function Sidebar({ children }: { children: React.ReactNode }) {
-  return <div className="sidebar">{children}</div>;
+export function Sidebar({ children, isOpen }: { children: React.ReactNode, isOpen: boolean }) {
+  return <div className={`sidebar ${isOpen ? 'open' : ''}`}>{children}</div>;
 }
 
 // Header da Sidebar
@@ -17,7 +24,11 @@ export function SidebarHeader({ children }: { children: React.ReactNode }) {
 
 // Menu da Sidebar
 export function SidebarMenu({ children }: { children: React.ReactNode }) {
-  return <nav className="sidebarMenu">{children}</nav>;
+  return (
+    <>
+    <Divisor />
+    <nav className="sidebarMenu">{children}</nav>
+    </>);
 }
 
 // Item do Menu
@@ -41,5 +52,10 @@ export function SidebarItem({ label, href, icon }: SidebarItemProps) {
 
 // Footer da Sidebar
 export function SidebarFooter({ children }: { children: React.ReactNode }) {
-  return <div className="sidebarFooter">{children}</div>;
+  return (
+    <>
+    <Divisor />
+    <footer className="sidebarFooter">{children}</footer>
+    </>
+  )
 }

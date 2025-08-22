@@ -1,11 +1,36 @@
-.dashboardLayout{
+.painelLayout{
     display: flex;
+    position: relative;
+    overflow-x: hidden;
+    background-color: var(--color-darker);
 }
 
 .mainPrincipal{
-    background-color: var(--color-darker);
     height: 100vh;
     width: 100%;
-    padding: 7%;
+    padding: 20px;
 }
+
+.menuButton{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: none;
+    cursor: pointer;
+    color: var(--color-light);
+}
+
+@media (max-width: 800px) {
+    
+    .menuButton {
+        display: block;
+        z-index: 11;
+    }
+
+    .mainPrincipal {
+        padding: 50px 20px 20px;
+    }
+}
+
+
 

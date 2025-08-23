@@ -57,7 +57,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    height: calc(100vh - 300px);
+    min-height: calc(100vh - 300px);
 }
 
 .fotoChamada{
@@ -121,7 +121,7 @@
 }
 
 .cardHome{
-    min-width: 400px;
+    min-width: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;

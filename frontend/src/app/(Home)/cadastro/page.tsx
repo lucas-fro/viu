@@ -22,7 +22,7 @@ export default function Cadastro() {
                 <input className="inputs" type="password" id="password" name="password" required />
             </div>
             
-            <button type="submit" className="button-p btn-form">Entrar</button>
+            <button type="submit" className="button-p btn-form">Cadastrar</button>
         </form>
       </Card>
     </main>

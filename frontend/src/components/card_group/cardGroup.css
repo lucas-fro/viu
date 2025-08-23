@@ -1,0 +1,44 @@
+.cardGroup{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--color-light);
+    background-color: var(--color-dark);
+    border-radius: var(--principal);
+    border: 1px solid var(--color-gray);
+    padding: 10px;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+}
+
+.configGroup{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: var(--color-light);
+}
+
+.cardGroup>h4{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.codeGroup{
+    background-color: var(--color-darker);
+    padding: 5px 10px;
+    border-radius: var(--border-p);
+    font-size: 2rem;
+    user-select: all;
+}
+
+@media (max-width: 800px) {
+    
+    .cardGroup{
+        width: 100%;
+    }
+
+}

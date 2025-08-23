@@ -1,0 +1,15 @@
+.cardsGroups{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    flex: 1 1 auto;
+    min-height: 0;
+    cursor: pointer;
+}
+
+@media (max-width: 800px) {
+    .cardsGroups{
+        justify-content: center;
+    }
+}

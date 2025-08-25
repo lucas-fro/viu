@@ -20,7 +20,7 @@ export function ButtonNovoGrupo() {
                     <label htmlFor="">Nome do Grupo:</label>
                     <input type="text" className="inputs" />
                 </div>
-                <button className="button-p w-[300px]">criar</button>
+                <button className="button-p w-[300px]">Criar novo grupo</button>
             </form>
         </PopUp>
         </>

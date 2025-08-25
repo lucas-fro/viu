@@ -1,6 +1,8 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { Card } from "@/components/card/page";
+import { Divisor } from "@/components/sidebar/page";
+import Link from "next/link";
 
 export default function Login() {
 
@@ -30,6 +32,9 @@ export default function Login() {
             
             <button type="submit" onClick={handleSubmit} className="button-p btn-form">Entrar</button>
         </form>
+        <p className="text-center text-[var(--color-light)] cursor-pointer">Esqueci a senha</p>
+        <Divisor />
+        <p className="textLink text-center text-[var(--color-light)]">Não tem uma conta? <Link href={"/cadastro"} className="hover:underline">Cadastre-se</Link></p>
       </Card>
     </main>
   );

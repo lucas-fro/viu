@@ -9,7 +9,7 @@
 }
 
 .sidebarHeader{
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 .sidebarMenu{
@@ -44,7 +44,7 @@
 .sidebarDivisor{
     width: 100%;
     border: 1px solid var(--color-dark-gray);
-    margin-bottom: 15px;
+    margin: 15px 0px;
 }
 
 .sidebarFooter{

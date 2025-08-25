@@ -1,4 +1,6 @@
 import { Card } from "@/components/card/page";
+import { Divisor } from "@/components/sidebar/page";
+import Link from "next/link";
 
 export default function Cadastro() {
   return (
@@ -24,6 +26,8 @@ export default function Cadastro() {
             
             <button type="submit" className="button-p btn-form">Cadastrar</button>
         </form>
+        <Divisor/>
+        <p className="textLink text-center text-[var(--color-light)]">Ja tem uma conta? <Link href={"/login"} className="hover:underline">Entrar</Link></p>
       </Card>
     </main>
   );

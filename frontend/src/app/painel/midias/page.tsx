@@ -1,14 +1,14 @@
-import { Images } from 'lucide-react';
 import { Divisor } from '@/components/sidebar/page';
 import { CardGroup } from '@/components/card_group/page';
 import "./midias.css";
+import { ButtonNovoGrupo } from '@/components/buttonNovoGrupo/page';
 
 export default function Midias() {
     return (
         <main className="mainPrincipal">
             <div className="topPage">
                 <h1 className="titlePage">Mídias</h1>
-                <button className='button-p flex items-center gap-5'><Images size={20} />Novo Grupo</button>
+                <ButtonNovoGrupo />
             </div>
             <Divisor />
             <div className="cardsGroups">

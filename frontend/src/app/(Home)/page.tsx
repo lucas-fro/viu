@@ -2,7 +2,7 @@ import { Download, Shield, TvMinimalPlay } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="backgorundPrincipal">
+    <main className="backgroundPrincipal">
       <section className="chamada-principal section">
         <div className="groupFotoChamada">
           <div className="filtroFoto"></div>

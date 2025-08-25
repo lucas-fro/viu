@@ -1,0 +1,57 @@
+.backgroundTv{
+    background-color: var(--color-darker-2);
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerTv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 50px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.inputGroupTv{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+}
+
+.labelTv{
+    color: var(--color-light);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.inputTv{
+    border: none;
+    outline: none;
+    background-color: var(--color-gray);
+    border-radius: var(--border-p);
+    padding: 10px 15px;
+    color: var(--color-darker);
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+
+    -moz-appearance: textfield;
+}
+
+.inputTv::-webkit-inner-spin-button,
+.inputTv::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.buttonTv{
+    margin: 20px 0px;
+    width: 100%;
+}

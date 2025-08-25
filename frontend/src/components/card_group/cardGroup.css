@@ -23,13 +23,12 @@
     padding: 5px 10px;
     border-radius: var(--border-p);
     font-size: 2rem;
-    user-select: all;
 }
 
 @media (max-width: 800px) {
     
     .cardGroup{
-        width: 100%;
+        flex: 1;
     }
 
 }

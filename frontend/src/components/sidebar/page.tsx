@@ -36,14 +36,15 @@ type SidebarItemProps = {
   label: string;
   href: string;
   icon: React.ReactNode;
+  toggleMenu?: () => void;
 };
 
-export function SidebarItem({ label, href, icon }: SidebarItemProps) {
+export function SidebarItem({ label, href, icon, toggleMenu }: SidebarItemProps) {
   const pathname = usePathname();
   const isActive = pathname === href; // verifica se a rota atual bate
 
   return (
-    <Link href={href} className={`sidebarLink ${isActive ? "active" : ""}`}>
+    <Link href={href} className={`sidebarLink ${isActive ? "active" : ""}`} onClick={toggleMenu}>
       {icon}
       <span>{label}</span>
     </Link>

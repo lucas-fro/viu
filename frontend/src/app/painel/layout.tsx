@@ -7,17 +7,16 @@ import Link from "next/link";
 import { ChartSpline, SquareStop, Settings, Menu } from 'lucide-react';
 import { useState } from "react";
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
 
-  const [isMunuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMunuOpen);
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
@@ -27,20 +26,20 @@ export default function RootLayout({
         <Menu size={30} className="menuIcon" />
       </button>
 
-      <Sidebar isOpen={isMunuOpen}>
+      <Sidebar isOpen={isMenuOpen}>
         <SidebarHeader>
           <Link href="/">
-          <Image src="/logo.png" alt="Logo" width={100} height={100}/>
+            <Image src="/logo.png" alt="Logo" width={100} height={100} />
           </Link>
         </SidebarHeader>
 
         <SidebarMenu>
-          <SidebarItem label="Mídias" href="/painel/midias" icon={<SquareStop size={18} />} />
-          <SidebarItem label="Dashboard" href="/painel/dashboard" icon={<ChartSpline size={18} /> } />
+          <SidebarItem label="Mídias" href="/painel/midias" icon={<SquareStop size={18} />} toggleMenu={toggleMenu} />
+          <SidebarItem label="Dashboard" href="/painel/dashboard" icon={<ChartSpline size={18} />} toggleMenu={toggleMenu} />
         </SidebarMenu>
 
         <SidebarFooter>
-          <SidebarItem label="configuração" href="/painel/configuracao" icon={<Settings size={18} />} />
+          <SidebarItem label="configuração" href="/painel/configuracao" icon={<Settings size={18} />} toggleMenu={toggleMenu} />
         </SidebarFooter>
       </Sidebar>
 

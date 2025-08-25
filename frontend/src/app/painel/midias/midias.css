@@ -1,11 +1,32 @@
-.cardsGroups{
+.cardsGroups {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
     overflow-y: auto;
     flex: 1 1 auto;
     min-height: 0;
-    cursor: pointer;
+
+    /* Scrollbar - Webkit (Chrome, Edge, Safari) */
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: rgba(0,0,0,0.5) transparent; /* Firefox */
+}
+
+/* Webkit */
+.cardsGroups::-webkit-scrollbar {
+    width: 8px; /* largura da barra */
+}
+
+.cardsGroups::-webkit-scrollbar-track {
+    background: transparent; /* track transparente */
+}
+
+.cardsGroups::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5); /* cor da “thumb” */
+    border-radius: 4px;
+}
+
+.cardsGroups::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 @media (max-width: 800px) {

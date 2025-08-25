@@ -7,19 +7,10 @@
     border-radius: var(--principal);
     border: 1px solid var(--color-gray);
     padding: 10px;
-    position: relative;
     width: 200px;
     height: 200px;
     align-items: center;
     justify-content: center;
-}
-
-.configGroup{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    color: var(--color-light);
 }
 
 .cardGroup>h4{

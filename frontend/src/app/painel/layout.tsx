@@ -35,8 +35,8 @@ export default function RootLayout({
         </SidebarHeader>
 
         <SidebarMenu>
-          <SidebarItem label="Dashboard" href="/painel/dashboard" icon={<ChartSpline size={18} /> } />
           <SidebarItem label="Mídias" href="/painel/midias" icon={<SquareStop size={18} />} />
+          <SidebarItem label="Dashboard" href="/painel/dashboard" icon={<ChartSpline size={18} /> } />
         </SidebarMenu>
 
         <SidebarFooter>

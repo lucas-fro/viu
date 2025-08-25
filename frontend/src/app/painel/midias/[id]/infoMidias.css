@@ -1,0 +1,58 @@
+.infoCodeGroup{
+    color: var(--color-light);
+    font-weight: bold;
+}
+
+.infoCodeGroup>span{
+    font-size: 3rem;
+    background-color: var(--color-darker-2);
+    padding: 5px 10px;
+    border-radius: var(--border-p);
+}
+
+.novaMidia{
+    background-color: var(--color-primary);
+    display: flex;
+    border-radius: var(--border-p);
+    padding: 5px 10px;
+    gap: 10px;
+    color: var(--color-light);
+    font-weight: bold;
+    cursor: pointer;
+    width: 195px;
+}
+
+.formConfigInfoGroup{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    padding: 10px;
+    border-radius: var(--principal);
+    border: 1px solid var(--color-gray);
+    gap: 10px;
+}
+
+.inputInfo{
+    background-color: var(--color-darker);
+    border: 1px solid var(--color-gray);
+    border-radius: 8px;
+    color: var(--color-light);
+    margin-left: 5px;
+    max-width: 150px;
+    cursor: pointer;
+}
+
+.button-salvar{
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    font-weight: bold;
+    padding: 5px;
+    border: none;
+    border-radius: var(--border-p);
+    cursor: pointer;
+}
+
+.button-salvar:hover, .novaMidia:hover {
+    background-color: #0051a3;
+}

@@ -4,10 +4,10 @@ import { Card } from "@/components/card/page";
 import { Divisor } from "@/components/sidebar/page";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import axios from "axios";
+import  api  from "../../../utils/axios.js"
 
 type FormValues = {
-  nome: string;
+  name: string;
   email: string;
   password: string;
 };
@@ -17,7 +17,7 @@ export default function Cadastro() {
 
   const onSubmit = async (data: FormValues) => {
     try {
-      
+      const response = await api.post("/users", data);
       console.log("Usuário cadastrado:", data);
       alert("Cadastro realizado com sucesso!");
       reset();
@@ -40,7 +40,7 @@ export default function Cadastro() {
               className="inputs"
               type="text"
               id="nome"
-              {...register("nome", { required: true })}
+              {...register("name", { required: true })}
             />
           </div>
 

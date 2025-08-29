@@ -4,7 +4,8 @@ import { Card } from "@/components/card/page";
 import { Divisor } from "@/components/sidebar/page";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import  api  from "../../../utils/axios.js"
+import  api  from "../../../utils/axios"
+import { useRouter } from "next/navigation";
 
 type FormValues = {
   name: string;
@@ -13,14 +14,16 @@ type FormValues = {
 };
 
 export default function Cadastro() {
+  const router = useRouter();
   const { register, handleSubmit, reset } = useForm<FormValues>();
 
   const onSubmit = async (data: FormValues) => {
     try {
-      const response = await api.post("/users", data);
+      const response = await api.post("/cadastro", data);
       console.log("Usuário cadastrado:", data);
       alert("Cadastro realizado com sucesso!");
       reset();
+      router.push("/login")
     } catch (error) {
       console.error(error);
       alert("Erro ao cadastrar usuário!");
@@ -32,7 +35,7 @@ export default function Cadastro() {
       <Card>
         <h1 className="titleCard">Cadastre-se</h1>
 
-        {/* handleSubmit do react-hook-form */}
+        
         <form onSubmit={handleSubmit(onSubmit)} className="form">
           <div className="input-group">
             <label htmlFor="nome">Nome completo:</label>
@@ -72,7 +75,7 @@ export default function Cadastro() {
         <Divisor />
 
         <p className="textLink text-center text-[var(--color-light)]">
-          Já tem uma conta?{" "}
+          Já tem uma conta? {" "}
           <Link href={"/login"} className="hover:underline">
             Entrar
           </Link>

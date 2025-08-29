@@ -17,7 +17,11 @@ app.register(jwt, {
 });
 
 // Habilita CORS
-await app.register(cors, { origin: "*" });
+await app.register(cors, {
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"], 
+});
 
 // Registra rotas
 await app.register(routes);

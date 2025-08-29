@@ -6,6 +6,8 @@ import { Divisor } from "@/components/sidebar/page";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import api from "@/utils/axios";
+import { AxiosError } from "axios";
+import Error from "next/error";
 
 type FormValues = {
   email: string;
@@ -28,13 +30,14 @@ export default function Login() {
 
       // Redirecionar para o painel
       router.push("/painel/midias");
-    } catch (error: any) {
-      if (error.response) {
-        console.log("Erro do backend:", error.response.data);
-      } else {
-        console.log("Erro na requisição:", error.message);
-      }
-    }
+      
+    } catch (error: unknown) {
+        if (error instanceof AxiosError) {
+        console.log("Erro do backend:", error.response?.data);
+        } else if (error instanceof Error) {
+          console.log("Erro na requisição");
+        }
+}
   };
 
   return (

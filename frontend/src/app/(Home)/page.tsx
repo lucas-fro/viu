@@ -37,6 +37,7 @@ export default function Home() {
             <TvMinimalPlay size={50}/>
             <p className="CFTopico">3. Exiba na TV</p>
             <p className="CFText">Digite o código na TV Smart e suas propagandas começam a rodar automaticamente.</p>
+            
           </div>
         </div>
   

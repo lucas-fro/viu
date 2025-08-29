@@ -1,6 +1,6 @@
 import { Divisor } from '@/components/sidebar/page';
 import "../../midias/midias.css";
-import { ArrowDownToLine, Info } from 'lucide-react';
+import { ArrowDownToLine } from 'lucide-react';
 import "./infoMidias.css";
 import { CardImage } from '@/components/card_image/page';
 import { InfoGroup } from '@/components/formConfigGroup/page';

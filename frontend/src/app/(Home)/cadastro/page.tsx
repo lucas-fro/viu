@@ -20,7 +20,7 @@ export default function Cadastro() {
   const onSubmit = async (data: FormValues) => {
     try {
       const response = await api.post("/cadastro", data);
-      console.log("Usuário cadastrado:", data);
+      console.log("Usuário cadastrado:", data, response);
       alert("Cadastro realizado com sucesso!");
       reset();
       router.push("/login")

@@ -5,7 +5,7 @@ import { Card } from "@/components/card/page";
 import { Divisor } from "@/components/sidebar/page";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import axios from "axios";
+import api from "@/utils/axios";
 
 type FormValues = {
   email: string;
@@ -17,13 +17,24 @@ export default function Login() {
   const { register, handleSubmit } = useForm<FormValues>();
 
   const onSubmit = async (data: FormValues) => {
-    console.log("📌 Dados do login:", data);
+    try {
+      // Chamada para o backend
+      const response = await api.post("/login", data);
 
-    // 👉 mais tarde você pode trocar o console.log por:
-    // const res = await axios.post("http://localhost:4000/api/login", data);
-    // if (res.status === 200) router.push("/painel/midias");
+      console.log("✅ Login sucesso");
 
-    router.push("/painel/midias"); // redireciona após "login"
+      // Salvar token no localStorage
+      localStorage.setItem("token", response.data.token);
+
+      // Redirecionar para o painel
+      router.push("/painel/midias");
+    } catch (error: any) {
+      if (error.response) {
+        console.log("❌ Erro do backend:", error.response.data);
+      } else {
+        console.log("⚠️ Erro na requisição:", error.message);
+      }
+    }
   };
 
   return (

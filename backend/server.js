@@ -2,18 +2,25 @@
 import Fastify from "fastify";
 import cors from "@fastify/cors";
 import dotenv from "dotenv";
-import { userRoutes } from "./src/router/userRouters.js";
+import { routes } from "./src/router/routers.js";
+import jwt from '@fastify/jwt';
 
 // Carrega variáveis de ambiente do .env
 dotenv.config();
 
+
+
 const app = Fastify({ logger: true });
+
+app.register(jwt, {
+  secret: process.env.JWT_SECRET,
+});
 
 // Habilita CORS
 await app.register(cors, { origin: "*" });
 
 // Registra rotas
-await app.register(userRoutes);
+await app.register(routes);
 
 // Função de start do servidor
 const start = async () => {

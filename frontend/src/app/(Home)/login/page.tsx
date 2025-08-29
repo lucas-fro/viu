@@ -21,7 +21,7 @@ export default function Login() {
       // Chamada para o backend
       const response = await api.post("/login", data);
 
-      console.log("✅ Login sucesso");
+      console.log("Login sucesso");
 
       // Salvar token no localStorage
       localStorage.setItem("token", response.data.token);

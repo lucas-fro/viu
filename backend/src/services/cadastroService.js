@@ -21,9 +21,8 @@ export const cadastroService = {
         name: true,
         email: true,
         createdAt: true,
-      },
-    })
-
-    return user
-  },
-}
+      }
+    });
+    return user;
+  }
+};

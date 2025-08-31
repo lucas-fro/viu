@@ -8,8 +8,6 @@ import jwt from '@fastify/jwt';
 // Carrega variáveis de ambiente do .env
 dotenv.config();
 
-
-
 const app = Fastify({ logger: true });
 
 app.register(jwt, {

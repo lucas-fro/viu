@@ -30,8 +30,8 @@ await app.register(routes);
 const start = async () => {
   try {
     const port = process.env.PORT || 3333;
-    await app.listen({ port });
-    console.log(`🚀 Servidor rodando em http://localhost:${port}`);
+    await app.listen({ port, host: "0.0.0.0" });
+    console.log(`🚀 Servidor rodando na porta ${port}`);
   } catch (err) {
     app.log.error(err);
     process.exit(1);

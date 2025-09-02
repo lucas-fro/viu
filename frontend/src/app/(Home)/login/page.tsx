@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import api from "@/utils/axios";
 import { AxiosError } from "axios";
 import Error from "next/error";
+import { useEffect } from "react";
 
 type FormValues = {
   email: string;
@@ -17,6 +18,13 @@ type FormValues = {
 export default function Login() {
   const router = useRouter();
   const { register, handleSubmit } = useForm<FormValues>();
+  
+    useEffect(() => {
+      const token = localStorage.getItem("token");
+      if (token) {
+        router.push("/painel/midias");
+      }
+    }, []);
 
   const onSubmit = async (data: FormValues) => {
     try {

@@ -1,3 +1,5 @@
+"use client"
+
 import { Divisor } from '@/components/sidebar/page';
 import "../../midias/midias.css";
 import { ArrowDownToLine } from 'lucide-react';

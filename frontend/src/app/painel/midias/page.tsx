@@ -31,13 +31,16 @@ export default function Midias() {
       <div className="cardsGroups">
         {isLoading && <p>Carregando grupos...</p>}
         {isError && <p>Erro ao carregar os grupos.</p>}
-        {grupos?.map((grupo: any) => (
-          <CardGroup 
-            key={grupo.id} 
-            nome={grupo.nome} 
-            codigo={grupo.codigo} 
-          />
-        ))}
+        {grupos?.map((grupo: any) => {
+          console.log(grupos);
+          return (
+            <CardGroup 
+              id={grupo.id} 
+              nome={grupo.nome} 
+              codigo={grupo.codigo}
+            />
+          );
+        })}
       </div>
     </main>
   )

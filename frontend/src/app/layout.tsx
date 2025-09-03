@@ -1,3 +1,4 @@
+import CoreProvider from "@/utils/coreProvaider";
 import "./globals.css";
 import type { Metadata } from "next";
 
@@ -19,7 +20,9 @@ export default function RootLayout({
       <body
         className={`antialiased`}
       >
+        <CoreProvider>
         {children}
+        </CoreProvider>
       </body>
     </html>
   );

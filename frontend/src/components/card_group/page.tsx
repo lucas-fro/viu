@@ -3,14 +3,20 @@
 import "./cardGroup.css";
 import Link from "next/link";
 
-export function CardGroup() {
+type grupoProps = {
+    key: string,
+    nome: string,
+    codigo: string,
+}
+
+export function CardGroup({ key, nome, codigo }: grupoProps) {
     return (
-        <Link href="/painel/midias/1">
-        <div className="cardGroup">
-            <h4>Nome do Grupo</h4>
-            <p>Fotos: 12</p>
-            <span className="codeGroup">36715</span>
-        </div>
+        <Link href={`/painel/midias/${key}`}>
+            <div key={key} className="cardGroup">
+                <h4>{nome}</h4>
+                <p>Fotos: 0</p>
+                <span className="codeGroup">{codigo}</span>
+            </div>
         </Link>
     );
 }

@@ -1,35 +1,44 @@
-import { Divisor } from '@/components/sidebar/page';
-import { CardGroup } from '@/components/card_group/page';
-import "./midias.css";
-import { ButtonNovoGrupo } from '@/components/buttonNovoGrupo/page';
+"use client"
+import { Divisor } from "@/components/sidebar/page"
+import { CardGroup } from "@/components/card_group/page"
+import { ButtonNovoGrupo } from "@/components/buttonNovoGrupo/page"
+import { useQuery } from "@tanstack/react-query"
+import api from "@/utils/axios"
+import "./midias.css"
 
 export default function Midias() {
-    return (
-        <main className="mainPrincipal">
-            <div className="topPage">
-                <h1 className="titlePage">Mídias</h1>
-                <ButtonNovoGrupo />
-            </div>
-            <Divisor />
-            <div className="cardsGroups">
-                <CardGroup />
-                <CardGroup />
-                <CardGroup />
-                <CardGroup />
-                <CardGroup />
-                <CardGroup />
-                <CardGroup />
-                <CardGroup />
-                <CardGroup />
-                <CardGroup />
-                <CardGroup />
-                <CardGroup />
-                <CardGroup />
-                <CardGroup />
-                <CardGroup />
-                <CardGroup />
-                <CardGroup />
-            </div>
-        </main>
-    );
+  const { data: grupos, isLoading, isError } = useQuery<Array<{ id: string; nome: string; codigo: string }>>({
+    queryKey: ['grupos'],
+    queryFn: async () => {
+      const { data } = await api.get("/grupos", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      return data;
+    },
+  });
+
+  return (
+    <main className="mainPrincipal">
+      <div className="topPage">
+        <h1 className="titlePage">Mídias</h1>
+        <ButtonNovoGrupo />
+      </div>
+
+      <Divisor />
+
+      <div className="cardsGroups">
+        {isLoading && <p>Carregando grupos...</p>}
+        {isError && <p>Erro ao carregar os grupos.</p>}
+        {grupos?.map((grupo: any) => (
+          <CardGroup 
+            key={grupo.id} 
+            nome={grupo.nome} 
+            codigo={grupo.codigo} 
+          />
+        ))}
+      </div>
+    </main>
+  )
 }

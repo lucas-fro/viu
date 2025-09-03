@@ -20,4 +20,18 @@ model User {
   email     String   @unique
   password  String
   createdAt DateTime @default(now())
+
+  grupos    Grupo[]  // um usuário pode ter vários grupos
 }
+
+model Grupo {
+  id        String   @id @default(uuid())
+  usuarioId String
+  nome      String
+  codigo    String   @unique
+  createdAt DateTime @default(now())
+
+  // Relacionamento com usuário
+  usuario   User     @relation(fields: [usuarioId], references: [id])
+}
+

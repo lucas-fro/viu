@@ -2,7 +2,7 @@
 import Fastify from "fastify";
 import cors from "@fastify/cors";
 import dotenv from "dotenv";
-import { routes } from "./src/router/routers.js";
+import { routes } from "./src/router/Routers.js";
 import jwt from '@fastify/jwt';
 
 // Carrega variáveis de ambiente do .env
@@ -10,8 +10,15 @@ dotenv.config();
 
 const app = Fastify({ logger: true });
 
-app.register(jwt, {
-  secret: process.env.JWT_SECRET,
+app.register(jwt, {secret: process.env.JWT_SECRET,});
+
+// Decorator para autenticação
+app.decorate("authenticate", async function (request, reply) {
+  try {
+    await request.jwtVerify();
+  } catch (err) {
+    reply.send(err);
+  }
 });
 
 // Habilita CORS

@@ -27,7 +27,7 @@ export function ButtonNovoGrupo() {
     const mutation = useMutation({
       mutationFn: criarGrupoAPI,
       onSuccess: () => {
-        queryClient.invalidateQueries(['grupos']);
+        queryClient.invalidateQueries({queryKey: ['grupos']});
         setIsOpen(false);
         setNome("");
       }

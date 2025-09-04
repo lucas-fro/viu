@@ -24,7 +24,7 @@ export default function Login() {
       if (token) {
         router.push("/painel/midias");
       }
-    }, []);
+    }, [router]);
 
   const onSubmit = async (data: FormValues) => {
     try {

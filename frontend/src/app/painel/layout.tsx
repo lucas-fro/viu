@@ -20,7 +20,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
     } else {
       setLoading(false);
     }
-  }, []);
+  }, [router]);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 

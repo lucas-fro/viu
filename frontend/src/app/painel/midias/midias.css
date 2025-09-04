@@ -3,7 +3,7 @@
     gap: 20px;
     flex-wrap: wrap;
     overflow-y: auto;
-    flex: 1 1 auto;
+    flex: 0 1 0 auto;
     min-height: 0;
 
     /* Scrollbar - Webkit (Chrome, Edge, Safari) */

@@ -33,8 +33,10 @@ export default function Midias() {
         {isError && <p>Erro ao carregar os grupos.</p>}
         {grupos?.map((grupo: any) => {
           console.log(grupos);
+          console.log(grupo);
           return (
-            <CardGroup 
+            <CardGroup
+              key={grupo.id} 
               id={grupo.id} 
               nome={grupo.nome} 
               codigo={grupo.codigo}

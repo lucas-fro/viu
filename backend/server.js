@@ -4,6 +4,7 @@ import cors from "@fastify/cors";
 import dotenv from "dotenv";
 import { routes } from "./src/router/routers.js";
 import jwt from '@fastify/jwt';
+import  multipart  from '@fastify/multipart';
 
 // Carrega variáveis de ambiente do .env
 dotenv.config();
@@ -30,6 +31,8 @@ await app.register(cors, {
 
 // Registra rotas
 await app.register(routes);
+
+await app.register(multipart)
 
 // Função de start do servidor
 const start = async () => {

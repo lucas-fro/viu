@@ -6,8 +6,13 @@ import { ArrowDownToLine } from 'lucide-react';
 import "./infoMidias.css";
 import { CardImage } from '@/components/card_image/page';
 import { InfoGroup } from '@/components/formConfigGroup/page';
+import { usePathname } from 'next/navigation';
 
 export default function MidiaGrupo() {
+    const pathname = usePathname()
+    const lastSegment = pathname.split("/").filter(Boolean).pop()
+
+    
     return (
         <main className="mainPrincipal">
             <div className="topPage">

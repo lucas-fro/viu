@@ -19,7 +19,11 @@ export default function Cadastro() {
 
   const onSubmit = async (data: FormValues) => {
     try {
-      const response = await api.post("/cadastro", data);
+      const response = await api.post("/cadastro", data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       console.log("Usuário cadastrado:", data, response);
       alert("Cadastro realizado com sucesso!");
       reset();

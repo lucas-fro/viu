@@ -12,12 +12,17 @@ export default function Midias() {
     queryFn: async () => {
       const { data } = await api.get("/grupos", {
         headers: {
+          
           Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-Type": "application/json"
         },
       });
       return data;
     },
   });
+
+
+
 
   return (
     <main className="mainPrincipal">

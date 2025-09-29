@@ -29,7 +29,11 @@ export default function Login() {
   const onSubmit = async (data: FormValues) => {
     try {
       // Chamada para o backend
-      const response = await api.post("/login", data);
+      const response = await api.post("/login", data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       console.log("Login sucesso");
 

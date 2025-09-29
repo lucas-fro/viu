@@ -22,6 +22,8 @@ app.decorate("authenticate", async function (request, reply) {
   }
 });
 
+await app.register(multipart);
+
 // Habilita CORS
 await app.register(cors, {
   origin: "*",
@@ -32,7 +34,6 @@ await app.register(cors, {
 // Registra rotas
 await app.register(routes);
 
-await app.register(multipart)
 
 // Função de start do servidor
 const start = async () => {

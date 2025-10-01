@@ -30,26 +30,21 @@ export default function Tv() {
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
 
   const mutation = useMutation({
-    mutationFn: async (codigo: string) => {
-      const response = await api.get<Grupo>(`/grupos/${codigo}`, {
-        headers: {
-          userid: localStorage.getItem("userId") || '',
-          "Content-Type": "application/json",
-        },
-      });
-      return response.data;
-    },
-    onSuccess: (data) => {
-      if (data.imagens && data.imagens.length > 0) {
-        setGrupo(data);
-      } else {
-        alert('Este grupo não possui imagens');
-      }
-    },
-    onError: () => {
-      alert('Código não encontrado');
-    },
-  });
+  mutationFn: async (codigo: string) => {
+    const response = await api.get<Grupo>(`/grupos/${codigo}`);
+    return response.data;
+  },
+  onSuccess: (data) => {
+    if (data.imagens && data.imagens.length > 0) {
+      setGrupo(data);
+    } else {
+      alert('Este grupo não possui imagens');
+    }
+  },
+  onError: () => {
+    alert('Código não encontrado');
+  },
+});
 
   const onSubmit = (data: FormData) => {
     mutation.mutate(data.codeTv);

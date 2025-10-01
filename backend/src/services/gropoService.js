@@ -24,10 +24,9 @@ export async function listarGrupos(usuarioId) {
   });
 }
 
-export async function obterGrupoPorCodigo(usuarioId, codigo) {
+export async function obterGrupoPorCodigo(codigo) {
   return await prisma.grupo.findFirst({
     where: {
-      usuarioId, 
       codigo 
     },
     include: { 

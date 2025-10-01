@@ -2,7 +2,7 @@
 import Fastify from "fastify";
 import cors from "@fastify/cors";
 import dotenv from "dotenv";
-import { routes } from "./src/router/routers.js";
+import { routes } from "./src/router/Routers.js";
 import jwt from '@fastify/jwt';
 import  multipart  from '@fastify/multipart';
 
@@ -22,13 +22,18 @@ app.decorate("authenticate", async function (request, reply) {
   }
 });
 
-await app.register(multipart);
+await app.register(multipart, {
+  limits: {
+    fileSize: 50 * 1024 * 1024, // 50MB
+    files: 1,
+  },
+});
 
 // Habilita CORS
 await app.register(cors, {
   origin: "*",
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"], 
+  allowedHeaders: ["Content-Type", "Authorization", "userid"], 
 });
 
 // Registra rotas

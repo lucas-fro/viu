@@ -9,17 +9,40 @@ import { InfoGroup } from "@/components/formConfigGroup/page";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import api from "@/utils/axios";
+import { useQueryClient } from "@tanstack/react-query";
+
+// Tipagem para os dados
+interface Imagem {
+  id: string;
+  url: string;
+}
+
+interface Grupo {
+  id: string;
+  nome: string;
+  duracao: number;
+  codigo: string;
+  imagens?: Imagem[];
+}
 
 export default function MidiaGrupo() {
   const pathname = usePathname();
   const lastSegment = pathname.split("/").filter(Boolean).pop();
   const [loading, setLoading] = useState(false);
+  const queryClient = useQueryClient();
+
+  // Pega os grupos do cache do React Query com tipagem
+  const grupos = queryClient.getQueryData<Grupo[]>(['grupos']) || [];
+  
+  // Encontra o grupo específico pela URL
+  const grupoAtual = grupos.find((grupo) => grupo.id === lastSegment);
+  console.log(grupoAtual + 'teste grupoAtual');
 
   async function handleUpload(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    const grupoId: string = lastSegment ?? ""; // garante string
+    const grupoId: string = lastSegment ?? "";
     if (!grupoId) {
       alert("ID do grupo inválido");
       return;
@@ -27,16 +50,15 @@ export default function MidiaGrupo() {
 
     const form = new FormData();
     form.append("file", file);
-    console.log("grupoId", grupoId);
     form.append("grupoId", grupoId);
-    console.log("file", file);
-    console.log("form", form.get("file"), form.get("grupoId"));
 
     setLoading(true);
     try {
       const res = await api.post("/midias", form);
       console.log("Upload feito:", res.data);
       alert("Imagem salva: " + res.data.url);
+      // Invalida a query para recarregar os dados
+      queryClient.invalidateQueries({ queryKey: ['rupos'] });
     } catch (err) {
       console.error(err);
       alert("Erro no upload");
@@ -45,14 +67,22 @@ export default function MidiaGrupo() {
     }
   }
 
+  if (!grupoAtual) {
+    return <div>Grupo não encontrado</div>;
+  }
+
   return (
     <main className="mainPrincipal">
       <div className="topPage">
         <div className="infoCodeGroup">
-          <span>54879</span>
+          <span>{grupoAtual.codigo}</span>
         </div>
 
-        <InfoGroup />
+        <InfoGroup 
+          nome={grupoAtual.nome}
+          duracao={grupoAtual.duracao}
+          grupoId={grupoAtual.id}
+        />
 
         <label htmlFor="arquivo" className="novaMidia">
           <ArrowDownToLine />
@@ -70,21 +100,13 @@ export default function MidiaGrupo() {
       <Divisor />
 
       <div className="cardsGroups">
-        <CardImage />
-        <CardImage />
-        <CardImage />
-        <CardImage />
-        <CardImage />
-        <CardImage />
-        <CardImage />
-        <CardImage />
-        <CardImage />
-        <CardImage />
-        <CardImage />
-        <CardImage />
-        <CardImage />
-        <CardImage />
-        <CardImage />
+        {grupoAtual.imagens?.map((imagem) => (
+          <CardImage 
+            key={imagem.id}
+            id={imagem.id}
+            url={imagem.url}
+          />
+        ))}
       </div>
     </main>
   );

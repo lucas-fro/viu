@@ -7,14 +7,15 @@ type grupoProps = {
     id: string,
     nome: string,
     codigo: string,
+    quantidadeImg: number,
 }
 
-export function CardGroup({ id, nome, codigo }: grupoProps) {
+export function CardGroup({ id, nome, codigo, quantidadeImg }: grupoProps) {
     return (
         <Link href={`/painel/midias/${id}`}>
             <div className="cardGroup">
                 <h4>{nome}</h4>
-                <p>Fotos: 0</p>
+                <p>{quantidadeImg}</p>
                 <span className="codeGroup">{codigo}</span>
             </div>
         </Link>

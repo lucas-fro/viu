@@ -39,6 +39,7 @@ export default function Login() {
 
       // Salvar token no localStorage
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("userId", response.data.user.id);
 
       // Redirecionar para o painel
       router.push("/painel/midias");

@@ -45,6 +45,7 @@ export default function Midias() {
               id={grupo.id} 
               nome={grupo.nome} 
               codigo={grupo.codigo}
+              quantidadeImg={grupo._count?.imagens || 0}
             />
           );
         })}

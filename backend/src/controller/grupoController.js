@@ -1,4 +1,4 @@
-import { criarGrupo, listarGrupos } from "../services/gropoService.js";
+import { criarGrupo, listarGrupos, obterGrupoPorCodigo } from "../services/gropoService.js";
 
 export async function handleCriarGrupo(req, reply) {
   try {
@@ -24,5 +24,27 @@ export async function handleListarGrupos(req, reply) {
   } catch (err) {
     console.error(err);
     return reply.code(500).send({ error: "Erro ao listar grupos" });
+  }
+}
+
+export async function handleObterGrupo(req, reply) {
+  try {
+    const { codigo } = req.params;
+    const usuarioId = req.headers.userid;
+    
+    if (!usuarioId) {
+      return reply.code(401).send({ error: "usuarioId não fornecido" });
+    }
+    
+    const grupo = await obterGrupoPorCodigo(usuarioId, codigo);
+    
+    if (!grupo) {
+      return reply.code(404).send({ error: "Grupo não encontrado" });
+    }
+    
+    return reply.send(grupo);
+  } catch (err) {
+    console.error(err);
+    return reply.code(500).send({ error: "Erro ao obter grupo" });
   }
 }

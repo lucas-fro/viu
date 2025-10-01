@@ -41,8 +41,6 @@
     text-align: center;
     font-weight: bold;
     width: 100%;
-
-    -moz-appearance: textfield;
 }
 
 .inputTv::-webkit-inner-spin-button,
@@ -54,4 +52,12 @@
 .buttonTv{
     margin: 20px 0px;
     width: 100%;
+}
+
+
+.containerImagemTv {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
 }

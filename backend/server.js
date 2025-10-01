@@ -2,7 +2,7 @@
 import Fastify from "fastify";
 import cors from "@fastify/cors";
 import dotenv from "dotenv";
-import { routes } from "./src/router/Routers.js";
+import { routes } from "./src/router/routers.js";
 import jwt from '@fastify/jwt';
 import  multipart  from '@fastify/multipart';
 

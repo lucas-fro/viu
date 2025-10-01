@@ -31,7 +31,12 @@ export default function Tv() {
 
   const mutation = useMutation({
     mutationFn: async (codigo: string) => {
-      const response = await api.get<Grupo>(`/grupos/${codigo}`);
+      const response = await api.get<Grupo>(`/grupos/${codigo}`, {
+        headers: {
+          userid: localStorage.getItem("userId") || '',
+          "Content-Type": "application/json",
+        },
+      });
       return response.data;
     },
     onSuccess: (data) => {

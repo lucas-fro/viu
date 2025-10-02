@@ -18,7 +18,7 @@ export async function routes(fastify) {
 
 
   // No seu arquivo de rotas (ex: server.js ou routes.js)
-    fastify.get('/health', async (request, reply) => {
+  fastify.get('/health', async (req, res) => {
     try {
       // Testa a conexão com o banco
       await prisma.$queryRaw`SELECT 1`;

@@ -30,8 +30,13 @@ export async function handleListarGrupos(req, reply) {
 export async function handleObterGrupo(req, reply) {
   try {
     const { codigo } = req.params;
+    const usuarioId = req.headers.userid;
     
-    const grupo = await obterGrupoPorCodigo(codigo);
+    if (!usuarioId) {
+      return reply.code(401).send({ error: "usuarioId não fornecido" });
+    }
+    
+    const grupo = await obterGrupoPorCodigo(usuarioId, codigo);
     
     if (!grupo) {
       return reply.code(404).send({ error: "Grupo não encontrado" });

@@ -18,21 +18,22 @@ export async function routes(fastify) {
 
 
   // No seu arquivo de rotas (ex: server.js ou routes.js)
-  fastify.get('/health', async (req, res) => {
+    fastify.get('/health', async (request, reply) => {
     try {
-      // Tenta fazer uma query simples no banco
+      // Testa a conexão com o banco
       await prisma.$queryRaw`SELECT 1`;
-      res.json({ 
+      
+      return reply.code(200).send({ 
         status: 'ok', 
         database: 'connected',
         timestamp: new Date().toISOString()
       });
     } catch (error) {
-      res.status(500).json({ 
+      return reply.code(500).send({ 
         status: 'error', 
         database: 'disconnected',
         error: error.message 
       });
     }
-  });
+    });
 }

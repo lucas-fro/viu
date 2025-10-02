@@ -15,4 +15,24 @@ export async function routes(fastify) {
 
   //rota que pega um grupo específico
   fastify.get("/grupos/:codigo", handleObterGrupo);
+
+
+  // No seu arquivo de rotas (ex: server.js ou routes.js)
+  fastify.get('/health', async (req, res) => {
+    try {
+      // Tenta fazer uma query simples no banco
+      await prisma.$queryRaw`SELECT 1`;
+      res.json({ 
+        status: 'ok', 
+        database: 'connected',
+        timestamp: new Date().toISOString()
+      });
+    } catch (error) {
+      res.status(500).json({ 
+        status: 'error', 
+        database: 'disconnected',
+        error: error.message 
+      });
+    }
+  });
 }

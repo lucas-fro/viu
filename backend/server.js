@@ -33,7 +33,7 @@ await app.register(multipart, {
 await app.register(cors, {
   origin: "*",
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization", "userid"], 
+  allowedHeaders: ["Content-Type", "Authorization"], 
 });
 
 // Registra rotas

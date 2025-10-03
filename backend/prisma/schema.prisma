@@ -13,20 +13,18 @@ model User {
   email     String   @unique
   password  String
   createdAt DateTime @default(now())
-
-  grupos    Grupo[]  // um usuário pode ter vários grupos
+  grupos    Grupo[]
 }
 
 model Grupo {
-  id        String    @id @default(uuid())
+  id        String   @id @default(uuid())
   usuarioId String
   nome      String
-  codigo    String    @unique
-  createdAt DateTime  @default(now())
-  duracao   Int       @default(5)
-
-  usuario   User      @relation(fields: [usuarioId], references: [id])
-  imagens   Imagem[]  // relação com Imagem
+  codigo    String   @unique
+  createdAt DateTime @default(now())
+  duracao   Int      @default(5)
+  usuario   User     @relation(fields: [usuarioId], references: [id])
+  imagens   Imagem[]
 }
 
 model Imagem {
@@ -35,6 +33,5 @@ model Imagem {
   url       String
   grupoId   String
   createdAt DateTime @default(now())
-
   grupo     Grupo    @relation(fields: [grupoId], references: [id])
 }
